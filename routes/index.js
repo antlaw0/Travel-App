@@ -36,12 +36,11 @@ console.log('all')
 
 /* POST - add a new location */
 router.post('/add', function(req, res) {
-//var filter = {id: req.body.id, name: req.body.name, visited: req.body.visited}
-var filter = {name: req.body.name}
-  var array =[];
-//   //credit for following http://stackoverflow.com/questions/32531204/cannot-access-mongodb-object-in-array-returns-undefined
+var filter = {name: req.body.name}//criteria to search by
+  var array =[];//initialize array
+  //use filter to query database and turn results into array
   req.db.collection('places').find(filter).toArray(function(err,data){
-    array=data;
+    array=data;//assign data got back into array
 	console.log("array length is "+array.length);
 
 
@@ -79,7 +78,7 @@ var name = req.body.name;
 var visited = req.body.visited;
 
 
-	
+	//update db with value of visited
 	req.db.collection('places').update({_id: object_id}, {$set :{visited: visited}}, function(err, result) {
 
 if (!err){
@@ -95,7 +94,7 @@ router.delete('/delete', function(req, res){
   var place_id = req.body._id;
 
   object_id = new ObjectID(place_id)
-
+//delete by object_id
 req.db.collection('places').deleteOne({_id: object_id }, function(err){
 
 console.log('callback')
