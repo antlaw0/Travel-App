@@ -80,7 +80,8 @@ var visited = req.body.visited;
 
 
 	
-	req.db.collection('places').update({_id: object_id}, {_id: object_id, visited: visited}, function(err, result) {
+	req.db.collection('places').update({_id: object_id}, {$set :{visited: visited}}, function(err, result) {
+
 if (!err){
 console.log("Result: "+result.name);
   res.json(places);
