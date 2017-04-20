@@ -1,0 +1,35 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.placename {
+  background-color: aquamarine;
+  width: 200px;
+  display:inline-block;
+  word-wrap: break-word;
+}
+
+.visited_label {
+  background-color: lightcyan;
+}
+
+.controls {
+  background-color: aqua;
+}
+
+#add_new_place_form {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.controls, .visited_label, .placename {
+  padding: 5px;
+  margin:1px;
+
+}
+
